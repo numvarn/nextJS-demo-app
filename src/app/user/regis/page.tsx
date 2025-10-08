@@ -39,10 +39,13 @@ export default function CreateProductPage() {
   }
 
   return (
-    <div className="container" style={{ maxWidth: '600px' }}>
+    <div
+      className="container"
+      style={{ maxWidth: '600px', marginTop: '100px' }}
+    >
       <div className="row justify-content-center">
         <div className="col-sm-12 col-md-10 col-lg-8 ">
-          <div className="card shadow mt-5">
+          <div className="card shadow">
             <div className="card-body p-4">
               <h3 className="card-title mb-4 text-center">Create Account</h3>
 

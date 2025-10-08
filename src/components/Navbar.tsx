@@ -12,7 +12,15 @@ export default function Navbar() {
   const handleMenuClick = () => {
     const offcanvasElement = document.getElementById('offcanvasNavbar')
     if (offcanvasElement && typeof window !== 'undefined') {
-      const bootstrap = (window as unknown as { bootstrap?: { Offcanvas?: { getInstance: (element: HTMLElement) => { hide: () => void } | null } } }).bootstrap
+      const bootstrap = (
+        window as unknown as {
+          bootstrap?: {
+            Offcanvas?: {
+              getInstance: (element: HTMLElement) => { hide: () => void } | null
+            }
+          }
+        }
+      ).bootstrap
       const bsOffcanvas = bootstrap?.Offcanvas?.getInstance(offcanvasElement)
       if (bsOffcanvas) {
         bsOffcanvas.hide()
@@ -21,7 +29,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container">
         <Link className="navbar-brand" href="/">
           NextJS
