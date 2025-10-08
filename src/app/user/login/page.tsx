@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState, useRef } from 'react'
 
-export default function CreateProductPage() {
+export default function LoginPage() {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
   const [messageType, setMessageType] = useState<'success' | 'error' | ''>('')
@@ -16,8 +16,6 @@ export default function CreateProductPage() {
 
     const formData = new FormData(formRef.current!)
     const data = {
-      firstName: formData.get('first-name') as string,
-      lastName: formData.get('last-name') as string,
       email: formData.get('email') as string,
       password: formData.get('password') as string,
     }
@@ -25,9 +23,7 @@ export default function CreateProductPage() {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000))
       console.log('Account data:', data)
-      setMessage(
-        `✅ Account "${data.firstName} ${data.lastName}" created successfully!`
-      )
+      setMessage(`✅ Account "${data.email}" logged in successfully!`)
       setMessageType('success')
       formRef.current?.reset()
     } catch (error) {
@@ -44,7 +40,7 @@ export default function CreateProductPage() {
         <div className="col-sm-12 col-md-10 col-lg-8 ">
           <div className="card shadow mt-5">
             <div className="card-body p-4">
-              <h3 className="card-title mb-4 text-center">Create Account</h3>
+              <h3 className="card-title mb-4 text-center">Sign In</h3>
 
               {message && (
                 <div
@@ -56,32 +52,6 @@ export default function CreateProductPage() {
               )}
 
               <form ref={formRef} onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <label htmlFor="name" className="form-label">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="first-name"
-                    name="first-name"
-                    required
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label htmlFor="name" className="form-label">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="last-name"
-                    name="last-name"
-                    required
-                  />
-                </div>
-
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email
@@ -121,17 +91,17 @@ export default function CreateProductPage() {
                         role="status"
                         aria-hidden="true"
                       ></span>
-                      Creating...
+                      Sign In...
                     </>
                   ) : (
-                    'Create Account'
+                    'Sign In'
                   )}
                 </button>
               </form>
             </div>
             <div className="text-center mb-4">
               Don&apos;t have an account?&nbsp;
-              <Link href="/user/login">Sign in</Link>
+              <Link href="/user/regis">Sign up</Link>
             </div>
           </div>
         </div>
