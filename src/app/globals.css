@@ -42,3 +42,22 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Responsive main content */
+.main-content {
+  margin-top: 56px;
+}
+
+/* Desktop: add left margin for fixed sidebar */
+@media (min-width: 992px) {
+  .main-content {
+    margin-left: 280px;
+  }
+}
+
+/* Mobile/Tablet: no left margin (sidebar is offcanvas) */
+@media (max-width: 991.98px) {
+  .main-content {
+    margin-left: 0;
+  }
+}

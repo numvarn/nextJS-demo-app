@@ -15,17 +15,18 @@ export default function Navbar() {
         <Link className="navbar-brand" href="/">
           NextJS
         </Link>
+        {/* Sidebar toggle button for mobile/tablet */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler d-lg-none me-2"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebarOffcanvas"
+          aria-controls="sidebarOffcanvas"
+          aria-label="Toggle sidebar"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">

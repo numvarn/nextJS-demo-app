@@ -30,7 +30,7 @@ export default function RootLayout({
         <Navbar />
         <div className="d-flex">
           <Sidebar />
-          <main className="flex-grow-1" style={{ marginTop: '56px', marginLeft: '280px' }}>
+          <main className="flex-grow-1 main-content">
             {children}
           </main>
         </div>
