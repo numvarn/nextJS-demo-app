@@ -1,8 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
+  const pathname = usePathname()
+  const isActive = (path: string) => {
+    return pathname === path ? 'active' : ''
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
@@ -24,17 +30,27 @@ export default function Navbar() {
           <div className="ms-auto">
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" href="/">
+                <Link
+                  className={`nav-link ${isActive('/')}`}
+                  aria-current="page"
+                  href="/"
+                >
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="/user/regis">
+                <Link
+                  className={`nav-link ${isActive('/user/regis')}`}
+                  href="/user/regis"
+                >
                   Sign Up
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="/user/login">
+                <Link
+                  className={`nav-link ${isActive('/user/login')}`}
+                  href="/user/login"
+                >
                   Sign In
                 </Link>
               </li>
