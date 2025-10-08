@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import Sidebar from '@/components/Sidebar'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -27,7 +28,12 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Navbar />
-        {children}
+        <div className="d-flex">
+          <Sidebar />
+          <main className="flex-grow-1" style={{ marginTop: '56px', marginLeft: '280px' }}>
+            {children}
+          </main>
+        </div>
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

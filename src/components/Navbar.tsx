@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div className="container">
+      <div className="container-fluid">
         <Link className="navbar-brand" href="/">
           NextJS
         </Link>
@@ -98,15 +98,6 @@ export default function Navbar() {
 
         <div className="collapse navbar-collapse d-none d-lg-block">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link
-                className={`nav-link ${isActive('/')}`}
-                aria-current="page"
-                href="/"
-              >
-                Home
-              </Link>
-            </li>
             <li className="nav-item">
               <Link
                 className={`nav-link ${isActive('/user/regis')}`}
