@@ -12,14 +12,14 @@ export default function Sidebar() {
 
   const handleMenuClick = () => {
     // Close offcanvas when menu item is clicked
-    const offcanvasElement = document.getElementById('sidebarOffcanvas')
-    if (offcanvasElement && typeof window !== 'undefined') {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const bsOffcanvas = (window as any).bootstrap?.Offcanvas?.getInstance(
-        offcanvasElement
-      )
-      if (bsOffcanvas) {
-        bsOffcanvas.hide()
+    if (typeof window !== 'undefined') {
+      const offcanvasElement = document.getElementById('sidebarOffcanvas')
+      if (offcanvasElement) {
+        // Use data attribute to trigger Bootstrap's dismiss
+        const closeButton = offcanvasElement.querySelector('[data-bs-dismiss="offcanvas"]') as HTMLButtonElement
+        if (closeButton) {
+          closeButton.click()
+        }
       }
     }
   }
